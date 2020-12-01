@@ -1,5 +1,4 @@
 const fs = require('fs');
-const { mainModule } = require('process');
 const input = fs.readFileSync('./input.txt', {encoding: 'utf-8'});
 
 const values = input.split('\n').map(x => parseInt(x, 10));
