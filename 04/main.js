@@ -22,6 +22,7 @@ function parsePasswords() {
             currentPassportData[prop.key] = prop.value;
         })
     });
+
     passports.push(currentPassportData);
 }
 
@@ -44,9 +45,9 @@ function getValidPassports() {
 function part2() {
     const validPassports = getValidPassports();
     return validPassports.filter(passport => {
-        return isDigitsInRange(passport.byr, 1920, 2002) &&
-            isDigitsInRange(passport.iyr, 2010, 2020) &&
-            isDigitsInRange(passport.eyr, 2020, 2030) &&
+        return isNumberInRange(passport.byr, 1920, 2002) &&
+            isNumberInRange(passport.iyr, 2010, 2020) &&
+            isNumberInRange(passport.eyr, 2020, 2030) &&
             isValidHeight(passport.hgt) &&
             isValidHairColor(passport.hcl) &&
             isValidEyeColor(passport.ecl) &&
@@ -54,7 +55,7 @@ function part2() {
     });
 }
 
-function isDigitsInRange(value, min, max) {
+function isNumberInRange(value, min, max) {
     const number = parseInt(value);
     return number >= min && number <= max;
 }
@@ -63,9 +64,9 @@ function isValidHeight(value) {
     const number = value.substr(0, value.length - 2);
     const unit = value.substr(value.length - 2);
     if (unit === 'cm') {
-        return isDigitsInRange(number, 150, 193);
+        return isNumberInRange(number, 150, 193);
     } else if (unit === 'in') {
-        return isDigitsInRange(number, 59, 76);
+        return isNumberInRange(number, 59, 76);
     }
     return false;
 }
