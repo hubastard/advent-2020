@@ -72,17 +72,7 @@ function isValidHeight(value) {
 }
 
 function isValidHairColor(value) {
-    if (value[0] === '#') {
-        const color = value.substr(1);
-        if (color.length !== 6) {
-            return false;
-        }
-
-        const match = color.match(/([a-f0-9]+)/g) || [''];
-        return match[0].length === 6;
-    }
-
-    return false;
+    return !!value.match(/#([0-9a-fA-F]{6})/g);
 }
 
 function isValidEyeColor(value) {
@@ -90,10 +80,7 @@ function isValidEyeColor(value) {
 }
 
 function isValidPid(value) {
-    if (value.length !== 9) {
-        return false;
-    }
-    return (value.match(/([0-9]+)/g) || [''])[0].length === 9;
+    return !!value.match(/([0-9]{9})/g);
 }
 
 parsePasswords();
