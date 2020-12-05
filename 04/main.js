@@ -4,7 +4,7 @@ const lines = input.split('\n');
 
 const passports = [];
 
-function parsePasswords() {
+function parsePassports() {
     let currentPassportData = {};
     lines.forEach(line => {
         if (line === '') {
@@ -83,7 +83,7 @@ function isValidPid(value) {
     return !!value.match(/([0-9]{9})/g);
 }
 
-parsePasswords();
+parsePassports();
 
 console.log('Part 1 answer: ' + getValidPassports().length);
 console.log('Part 2 answer: ' + part2().length);

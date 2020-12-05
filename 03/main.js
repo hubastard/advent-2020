@@ -1,17 +1,17 @@
 const fs = require('fs');
 const input = fs.readFileSync('./input.txt', {encoding: 'utf-8'});
 
-const values = input.split('\n');
-const rowWidth = values[0].length;
+const lines = input.split('\n');
+const rowWidth = lines[0].length;
 
 function countTreesOnSlope(xOffset, yOffset) {
     var x = 0;
     var y = 0;
     var count = 0;
-    while(y < values.length - yOffset) {
+    while(y < lines.length - yOffset) {
         x += xOffset;
         y += yOffset;
-        if (values[y][x % rowWidth] === '#') {
+        if (lines[y][x % rowWidth] === '#') {
             count ++;
         } 
     }
