@@ -9,8 +9,8 @@ function getSeatIds() {
     const ids = [];
 
     lines.forEach(line => {
-        const row = parseInt(line.substr(0, 7).replaceAll('F', '0').replaceAll('B', '1'), 2);
-        const column = parseInt(line.substr(7, 3).replaceAll('L', '0').replaceAll('R', '1'), 2)
+        const row = parseInt(line.substr(0, 7).replace(/F/g, '0').replace(/B/g, '1'), 2);
+        const column = parseInt(line.substr(7, 3).replace(/L/g, '0').replace(/R/g, '1'), 2)
         const seatId = row * seatsPerRow + column;
         ids.push(seatId);
     });
