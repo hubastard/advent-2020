@@ -9,7 +9,7 @@ function getSeatIds() {
     const ids = [];
 
     lines.forEach(line => {
-        const row = parseInt(line.substr(0,7).replaceAll('F', '0').replaceAll('B', '1'), 2);
+        const row = parseInt(line.substr(0, 7).replaceAll('F', '0').replaceAll('B', '1'), 2);
         const column = parseInt(line.substr(7, 3).replaceAll('L', '0').replaceAll('R', '1'), 2)
         const seatId = row * seatsPerRow + column;
         ids.push(seatId);
@@ -24,7 +24,7 @@ function part1() {
 
 function part2() {
     const from = seatsPerRow;
-    const to = (lastRow - seatsPerRow) * seatsPerRow;
+    const to = (lastRow - 1) * seatsPerRow;
     const seatIds = getSeatIds();
     for (var i = from; i < to; ++i) {
         if (!seatIds.includes(i) && seatIds.includes(i + 1) && seatIds.includes(i - 1)) {
