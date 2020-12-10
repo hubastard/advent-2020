@@ -1,5 +1,4 @@
 const fs = require('fs');
-const { start } = require('repl');
 const input = fs.readFileSync('./input.txt', {encoding: 'utf-8'});
 
 const numbers = input.split('\n').map(line => parseInt(line, 10));
